@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up | Qalamkar</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container navbar">
+        <a href="frontpage.html" class="brand"><span class="brand-mark">Q</span><span>Qalamkar</span></a>
+        <nav class="nav-links">
+          <a href="frontpage.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="competitions.html">Competitions</a>
+          <a href="contact.html">Contact</a>
+          <a href="monetization.html">Monetize</a>
+        </nav>
+        <div class="nav-actions">
+          <div class="lang-picker">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="ur">UR</button>
+            <button class="lang-btn" data-lang="bal">BL</button>
+          </div>
+          <a href="login.html" class="btn-ghost">Login</a>
+          <a href="signup.html" class="btn">Create account</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="form-shell">
+      <div class="auth-panel signup-panel">
+        <span class="eyebrow">Your words belong here</span>
+        <h2>Create account</h2>
+        <p>Join Qalamkar and begin publishing your stories.</p>
+
+        <form data-auth-form="signup">
+          <div class="signup-name-fields">
+            <div class="form-group">
+              <label for="first-name">First name</label>
+              <input id="first-name" name="first_name" type="text" placeholder="First name" autocomplete="given-name" required />
+            </div>
+            <div class="form-group">
+              <label for="last-name">Last name</label>
+              <input id="last-name" name="last_name" type="text" placeholder="Last name" autocomplete="family-name" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="signup-username">Username</label>
+            <input id="signup-username" name="username" type="text" placeholder="e.g. wordsmith" autocomplete="username" autocapitalize="none" minlength="3" maxlength="24" pattern="[A-Za-z0-9_]{3,24}" title="Use 3 to 24 letters, numbers, or underscores." required />
+          </div>
+
+          <div class="form-group">
+            <label for="signup-email">Email</label>
+            <input id="signup-email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required />
+          </div>
+
+          <div class="signup-name-fields">
+            <div class="form-group">
+              <label for="signup-password">Password</label>
+              <input id="signup-password" name="password" type="password" placeholder="At least 8 characters" autocomplete="new-password" minlength="8" required />
+            </div>
+            <div class="form-group">
+              <label for="confirm-password">Confirm password</label>
+              <input id="confirm-password" name="confirm_password" type="password" placeholder="Re-enter password" autocomplete="new-password" minlength="8" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="language">Preferred language</label>
+            <select id="language" name="preferred_language">
+              <option value="en">English</option>
+              <option value="ur">Urdu</option>
+              <option value="bal">Balochi</option>
+            </select>
+          </div>
+
+          <p role="status" aria-live="polite" data-auth-status></p>
+          <button class="btn" type="submit" style="width: 100%; margin-top: 10px;">Create account</button>
+        </form>
+
+        <p style="margin-top: 20px; text-align: center; color: var(--muted);">
+          Already have an account? <a href="login.html" class="link-text">Sign in</a>
+        </p>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-shell">
+        <div><strong>Qalamkar</strong><div>Value your words</div></div>
+        <div class="footer-links">
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+          <a href="frontpage.html">Home</a>
+        </div>
+        <div>© <span data-year></span> Qalamkar</div>
+      </div>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+    <script type="module" src="auth.js"></script>
+  </body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Qalamkar | Value your words</title>
+    <meta name="description" content="Qalamkar is a creative writing community for Urdu, Balochi and English writers. Publish stories, poetry, blogs and grow your audience." />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container navbar">
+        <a href="index.html" class="brand" aria-label="Qalamkar home">
+          <span class="brand-mark">Q</span>
+          <span>Qalamkar</span>
+        </a>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="index.html" data-i18n="nav.home">Home</a>
+          <a href="about.html" data-i18n="nav.about">About</a>
+          <a href="competitions.html" data-i18n="nav.competitions">Competitions</a>
+          <a href="contact.html" data-i18n="nav.contact">Contact</a>
+          <a href="monetization.html">Monetize</a>
+        </nav>
+        <div class="nav-actions">
+          <div class="lang-picker" aria-label="Language selector">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="ur">UR</button>
+            <button class="lang-btn" data-lang="bal">BL</button>
+          </div>
+          <div class="nav-actions" data-auth-links>
+            <a href="login.html" class="btn-ghost" data-i18n="nav.login">Login</a>
+            <a href="signup.html" class="btn" data-i18n="nav.signup">Create account</a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="container hero-shell">
+          <div class="hero-copy">
+            <span class="eyebrow" data-i18n="hero.eyebrow">Poetry • Blogs • Stories • Voice</span>
+            <h1><span data-i18n="hero.title">Write your voice. Build your audience.</span></h1>
+            <p data-i18n="hero.subtitle">
+              Qalamkar is a creative platform for Urdu, Balochi and English writers to publish stories,
+              poems, blogs, and personal essays that connect with readers.
+            </p>
+            <div class="cta-row">
+              <a href="signup.html" class="btn" data-i18n="cta.primary">Start writing</a>
+              <a href="#featured" class="btn-ghost" data-i18n="cta.secondary">Explore stories</a>
+            </div>
+          </div>
+          <div class="hero-visual" aria-label="Featured writing preview">
+            <div class="feature-card main">
+              <div class="post-preview">
+                <div class="cover"></div>
+                <div class="post-body">
+                  <span class="tag">Qalamkar</span>
+                  <h3>Poetry, stories, and essays</h3>
+                  <p>Share original work in Urdu, Balochi, and English.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="featured" class="section">
+        <div class="container">
+          <div class="section-header">
+            <div><h2 data-i18n="section.featured">Featured work</h2></div>
+            <p data-i18n="section.featured.desc">Fresh voices and unforgettable reads from our growing creative community.</p>
+          </div>
+          <div class="content-panel">
+            <p style="color: var(--muted); line-height: 1.9; margin: 0;">No work is currently featured.</p>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <div><h2 data-i18n="section.why">Why writers choose Qalamkar</h2></div>
+            <p data-i18n="section.why.desc">A safe space to publish, connect, and grow with readers who value words.</p>
+          </div>
+          <div class="card-grid">
+            <div class="info-card">
+              <div class="info-icon">✍️</div>
+              <h3>Publish in all languages</h3>
+              <p>Write in Urdu, Balochi, or English without friction. One platform, one creative home.</p>
+            </div>
+            <div class="info-card">
+              <div class="info-icon">👥</div>
+              <h3>Follow and engage</h3>
+              <p>Build a loyal reader community through follows, comments, and meaningful conversations.</p>
+            </div>
+            <div class="info-card">
+              <div class="info-icon">💰</div>
+              <h3>Earn from creativity</h3>
+              <p>Reach 500 followers, publish 50 original posts, and earn 100 combined likes and comments to qualify.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="container">
+          <div class="monet-banner">
+            <div>
+              <span class="eyebrow" style="margin-bottom: 18px;">Creator rewards</span>
+              <h3 data-i18n="section.monetize">Monetize your craft</h3>
+              <p data-i18n="section.monetize.desc">Turn your creativity into income through community support, visibility, and reader engagement.</p>
+            </div>
+            <div><a href="monetization.html" class="btn">View earning model</a></div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="container footer-shell">
+        <div><strong>Qalamkar</strong><div>Value your words</div></div>
+        <div class="footer-links">
+          <a href="about.html" data-i18n="footer.about">About</a>
+          <a href="contact.html" data-i18n="footer.contact">Contact</a>
+        </div>
+        <div>© <span data-year></span> Qalamkar</div>
+      </div>
+    </footer>
+    <script type="module" src="script.js"></script>
+    <script type="module" src="auth.js"></script>
+  </body>
+</html>

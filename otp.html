@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OTP Verification | Qalamkar</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container navbar">
+        <a href="frontpage.html" class="brand"><span class="brand-mark">Q</span><span>Qalamkar</span></a>
+        <nav class="nav-links">
+          <a href="frontpage.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="competitions.html">Competitions</a>
+          <a href="contact.html">Contact</a>
+          <a href="monetization.html">Monetize</a>
+        </nav>
+        <div class="nav-actions">
+          <div class="lang-picker">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="ur">UR</button>
+            <button class="lang-btn" data-lang="bal">BL</button>
+          </div>
+          <a href="login.html" class="btn-ghost">Login</a>
+          <a href="signup.html" class="btn">Create account</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="form-shell">
+      <div class="auth-panel">
+        <h2>Reset your password</h2>
+        <p>We’ll email you a secure link to choose a new password.</p>
+
+        <form data-auth-form="forgot-password">
+          <div class="form-group">
+            <label for="recovery-email">Email</label>
+            <input id="recovery-email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required />
+          </div>
+          <p role="status" aria-live="polite" data-auth-status></p>
+          <button class="btn" type="submit" style="width: 100%;">Send reset link</button>
+        </form>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-shell">
+        <div><strong>Qalamkar</strong><div>Value your words</div></div>
+        <div class="footer-links">
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+          <a href="frontpage.html">Home</a>
+        </div>
+        <div>© <span data-year></span> Qalamkar</div>
+      </div>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+    <script type="module" src="auth.js"></script>
+  </body>
+</html>

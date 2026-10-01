@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Manage your Qalamkar writer profile." />
+    <title>My profile | Qalamkar</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container navbar">
+        <a href="index.html" class="brand" aria-label="Qalamkar home">
+          <span class="brand-mark">Q</span>
+          <span>Qalamkar</span>
+        </a>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="competitions.html">Competitions</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <div class="nav-actions" data-auth-links>
+          <a href="login.html" class="btn-ghost">Login</a>
+          <a href="signup.html" class="btn">Create account</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="profile-page" data-profile-page>
+      <div class="profile-layout">
+        <div class="profile-heading">
+          <div class="profile-avatar" aria-hidden="true">Q</div>
+          <div>
+            <span class="eyebrow">Your writer page</span>
+            <h1 data-profile-name>Writer</h1>
+            <p data-profile-email></p>
+          </div>
+        </div>
+
+        <section class="auth-panel profile-panel" aria-labelledby="profile-title">
+          <div class="profile-section-heading">
+            <div>
+              <h2 id="profile-title">Profile details</h2>
+              <p>Your introduction to the Qalamkar writing community.</p>
+            </div>
+            <span class="profile-joined">Writing here since <span data-profile-joined>—</span></span>
+          </div>
+
+          <form data-profile-form>
+            <div class="signup-name-fields">
+              <div class="form-group">
+                <label for="profile-first-name">First name</label>
+                <input id="profile-first-name" name="first_name" type="text" autocomplete="given-name" maxlength="80" required />
+              </div>
+              <div class="form-group">
+                <label for="profile-last-name">Last name</label>
+                <input id="profile-last-name" name="last_name" type="text" autocomplete="family-name" maxlength="80" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="profile-username">Username</label>
+              <input id="profile-username" name="username" type="text" autocomplete="username" autocapitalize="none" minlength="3" maxlength="24" pattern="[A-Za-z0-9_]{3,24}" title="Use 3 to 24 letters, numbers, or underscores." required />
+            </div>
+
+            <div class="form-group">
+              <label for="profile-bio">About your writing</label>
+              <textarea id="profile-bio" name="bio" rows="4" maxlength="280" placeholder="What do you love to write about?"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="profile-language">Writing language</label>
+              <select id="profile-language" name="preferred_language">
+                <option value="en">English</option>
+                <option value="ur">Urdu</option>
+                <option value="bal">Balochi</option>
+              </select>
+            </div>
+
+            <p role="status" aria-live="polite" data-profile-status></p>
+            <button class="btn" type="submit" disabled>Save profile</button>
+          </form>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-shell">
+        <div><strong>Qalamkar</strong><div>Value your words</div></div>
+        <div class="footer-links"><a href="index.html">Home</a><a href="contact.html">Contact</a></div>
+        <div>© <span data-year></span> Qalamkar</div>
+      </div>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+    <script type="module" src="auth.js"></script>
+  </body>
+</html>

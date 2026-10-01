@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | Qalamkar</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container navbar">
+        <a href="frontpage.html" class="brand"><span class="brand-mark">Q</span><span>Qalamkar</span></a>
+        <nav class="nav-links">
+          <a href="frontpage.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="competitions.html">Competitions</a>
+          <a href="contact.html">Contact</a>
+          <a href="monetization.html">Monetize</a>
+        </nav>
+        <div class="nav-actions">
+          <div class="lang-picker">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="ur">UR</button>
+            <button class="lang-btn" data-lang="bal">BL</button>
+          </div>
+          <a href="login.html" class="btn-ghost">Login</a>
+          <a href="signup.html" class="btn">Create account</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="form-shell">
+      <div class="auth-panel">
+        <h2>Welcome back</h2>
+        <p>Sign in to continue your writing journey.</p>
+
+        <form data-auth-form="login">
+          <div class="form-group">
+            <label for="login-email">Email</label>
+            <input id="login-email" name="email" type="email" placeholder="name@example.com" autocomplete="email" required />
+          </div>
+
+          <div class="form-group">
+            <label for="login-password">Password</label>
+            <input id="login-password" name="password" type="password" placeholder="Enter your password" autocomplete="current-password" required />
+          </div>
+
+          <div class="auth-actions">
+            <label class="check-row">
+              <input type="checkbox" />
+              <span>Remember me</span>
+            </label>
+            <a href="otp.html" class="link-text">Forgot password?</a>
+          </div>
+
+          <p role="status" aria-live="polite" data-auth-status></p>
+          <button class="btn" type="submit" style="width: 100%;">Sign in</button>
+        </form>
+
+        <p style="margin-top: 20px; text-align: center; color: var(--muted);">
+          New here? <a href="signup.html" class="link-text">Create an account</a>
+        </p>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-shell">
+        <div><strong>Qalamkar</strong><div>Value your words</div></div>
+        <div class="footer-links">
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+          <a href="frontpage.html">Home</a>
+        </div>
+        <div>© <span data-year></span> Qalamkar</div>
+      </div>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+    <script type="module" src="auth.js"></script>
+  </body>
+</html>
