@@ -42,6 +42,10 @@ if (!supabaseUrl || !supabaseKey) {
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (!session) return;
       authLinks.replaceChildren();
+      const dashboardLink = document.createElement('a');
+      dashboardLink.href = 'dashboard.html';
+      dashboardLink.className = 'btn-ghost';
+      dashboardLink.textContent = 'Dashboard';
       const profileLink = document.createElement('a');
       profileLink.href = 'profile.html';
       profileLink.className = 'btn-ghost';
@@ -52,9 +56,9 @@ if (!supabaseUrl || !supabaseKey) {
       signOutButton.textContent = 'Sign out';
       signOutButton.addEventListener('click', async () => {
         await supabase.auth.signOut();
-        window.location.reload();
+        window.location.assign('index.html');
       });
-      authLinks.append(profileLink, signOutButton);
+      authLinks.append(dashboardLink, profileLink, signOutButton);
     });
   }
 
@@ -119,7 +123,8 @@ if (!supabaseUrl || !supabaseKey) {
         return;
       }
       profilePage.querySelector('[data-profile-name]').textContent = `${formData.get('first_name').trim()} ${formData.get('last_name').trim()}`.trim() || 'Writer';
-      setProfileStatus('Profile saved.');
+      setProfileStatus('Profile saved. Opening your dashboard...');
+      window.setTimeout(() => window.location.assign('dashboard.html'), 700);
     });
 
     loadProfile().catch((error) => setProfileStatus(error.message || 'Could not load your profile.', true));
@@ -166,7 +171,7 @@ if (!supabaseUrl || !supabaseKey) {
             throw new Error('An account with this email already exists. Please sign in.');
           }
           if (result.data.session) {
-            showStatus(form, 'Your account is ready. Redirecting...');
+            showStatus(form, 'Account created. Set up your profile...');
             window.location.assign('profile.html');
           } else {
             showStatus(
@@ -181,8 +186,8 @@ if (!supabaseUrl || !supabaseKey) {
             password: formData.get('password'),
           });
           if (result.error) throw result.error;
-          showStatus(form, 'Signed in. Redirecting...');
-          window.location.assign('profile.html');
+          showStatus(form, 'Signed in. Opening your dashboard...');
+          window.location.assign('dashboard.html');
         } else if (mode === 'forgot-password') {
           result = await supabase.auth.resetPasswordForEmail(formData.get('email'), {
             redirectTo: `${window.location.origin}/reset-password.html`,

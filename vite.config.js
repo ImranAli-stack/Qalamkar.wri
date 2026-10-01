@@ -13,6 +13,7 @@ const pages = [
   'reset-password.html',
   'monetization.html',
   'profile.html',
+  'dashboard.html',
 ];
 
 export default defineConfig({

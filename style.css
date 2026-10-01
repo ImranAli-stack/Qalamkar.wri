@@ -877,6 +877,141 @@ h1, h2, h3, h4,
 [data-profile-status][data-state="error"] { color: #f2a49d; }
 [data-profile-status][data-state="success"] { color: var(--success); }
 
+.dashboard-page { padding: 48px 16px 88px; }
+.dashboard-shell {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+  display: grid;
+  gap: 36px;
+}
+.dashboard-welcome {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  animation: rise-in 650ms both;
+}
+.dashboard-welcome .eyebrow {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(72, 102, 84, 0.55);
+  color: #e8f0e6;
+  font-size: 0.82rem;
+}
+.dashboard-welcome h1 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2.4rem, 5vw, 3.4rem);
+  font-weight: 600;
+  line-height: 1.1;
+  margin: 0;
+}
+.dashboard-welcome p {
+  color: var(--muted);
+  margin: 12px 0 0;
+  max-width: 34rem;
+  line-height: 1.7;
+}
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.dashboard-stat {
+  padding: 22px 8px;
+  text-align: center;
+}
+.dashboard-stat + .dashboard-stat {
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+}
+.dashboard-stat span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.86rem;
+  margin-bottom: 8px;
+}
+.dashboard-stat strong {
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+.dashboard-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.85fr);
+  gap: 28px;
+  align-items: start;
+}
+.dashboard-section {
+  animation: rise-in 700ms both;
+}
+.dashboard-compose {
+  padding: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius);
+  background: rgba(34, 42, 36, 0.72);
+}
+.dashboard-section-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.dashboard-kicker {
+  display: block;
+  color: var(--muted);
+  font-size: 0.82rem;
+  margin-bottom: 8px;
+}
+.dashboard-section h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0;
+}
+.dashboard-compose > p {
+  color: var(--muted);
+  line-height: 1.7;
+  margin: 10px 0 22px;
+}
+.dashboard-text-link {
+  color: #e3ad7b;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+.dashboard-text-link:hover { color: #f0c89e; }
+.dashboard-story-list { display: grid; gap: 12px; }
+.dashboard-story-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius);
+  background: rgba(29, 36, 31, 0.55);
+}
+.dashboard-story-item h3 {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+.dashboard-story-item p,
+.dashboard-story-item time {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+.dashboard-empty,
+.dashboard-status {
+  color: var(--muted);
+  line-height: 1.7;
+}
+.dashboard-status[data-state="error"] { color: #f2a49d; }
+.dashboard-status[data-state="success"] { color: var(--success); }
+.dashboard-compose .btn { width: 100%; margin-top: 8px; }
+
 @keyframes page-enter {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -887,11 +1022,22 @@ h1, h2, h3, h4,
   to { opacity: 1; transform: translateY(0); }
 }
 
+@media (max-width: 900px) {
+  .dashboard-columns { grid-template-columns: 1fr; }
+  .dashboard-welcome { flex-direction: column; align-items: flex-start; }
+  .dashboard-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .dashboard-stat:nth-child(3) { border-left: none; }
+  .dashboard-stat:nth-child(odd) { border-left: none; }
+  .dashboard-stat:nth-child(2),
+  .dashboard-stat:nth-child(4) { border-left: 1px solid rgba(255, 255, 255, 0.08); }
+}
+
 @media (max-width: 640px) {
   .signup-name-fields { grid-template-columns: 1fr; gap: 0; }
   .profile-page { padding-top: 40px; }
   .profile-section-heading { flex-direction: column; }
   .profile-joined { text-align: left; }
+  .dashboard-stats { grid-template-columns: 1fr 1fr; }
 }
 
 @media (prefers-reduced-motion: reduce) {
