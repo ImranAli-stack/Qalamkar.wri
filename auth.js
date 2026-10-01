@@ -140,9 +140,11 @@ if (!supabaseUrl || !supabaseKey) {
         if (mode === 'signup') {
           const firstName = formData.get('first_name').trim();
           const lastName = formData.get('last_name').trim();
+          const email = String(formData.get('email') || '').trim();
+          const password = String(formData.get('password') || '');
           result = await supabase.auth.signUp({
-            email: formData.get('email'),
-            password: formData.get('password'),
+            email,
+            password,
             options: {
               data: {
                 first_name: firstName,
@@ -155,10 +157,24 @@ if (!supabaseUrl || !supabaseKey) {
             },
           });
           if (result.error) throw result.error;
-          showStatus(form, result.data.session
-            ? 'Your account is ready. Redirecting...'
-            : 'Account created. Check your email to confirm your address.');
-          if (result.data.session) window.location.assign('profile.html');
+          // Supabase returns a fake empty user when email confirmations are on
+          // and the address is already registered — treat that as an error.
+          if (!result.data.user) {
+            throw new Error('Could not create account. Try a different email.');
+          }
+          if ((result.data.user.identities || []).length === 0) {
+            throw new Error('An account with this email already exists. Please sign in.');
+          }
+          if (result.data.session) {
+            showStatus(form, 'Your account is ready. Redirecting...');
+            window.location.assign('profile.html');
+          } else {
+            showStatus(
+              form,
+              'Account created. Check your email to confirm, then sign in. (Or turn off Confirm email in Supabase Auth settings for instant signup.)',
+            );
+            window.setTimeout(() => window.location.assign('login.html'), 2500);
+          }
         } else if (mode === 'login') {
           result = await supabase.auth.signInWithPassword({
             email: formData.get('email'),
