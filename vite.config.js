@@ -14,6 +14,7 @@ const pages = [
   'monetization.html',
   'profile.html',
   'dashboard.html',
+  'write.html',
 ];
 
 export default defineConfig({

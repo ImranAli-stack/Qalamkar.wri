@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Write and save a Qalamkar story draft." />
+    <title>Write a story | Qalamkar</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container navbar">
+        <a href="index.html" class="brand" aria-label="Qalamkar home">
+          <span class="brand-mark">Q</span>
+          <span>Qalamkar</span>
+        </a>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="dashboard.html">Dashboard</a>
+          <a href="competitions.html">Competitions</a>
+          <a href="monetization.html">Monetize</a>
+        </nav>
+        <div class="nav-actions" data-auth-links>
+          <a href="login.html" class="btn-ghost">Login</a>
+          <a href="signup.html" class="btn">Create account</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="write-page" data-write-page>
+      <div class="write-shell">
+        <div class="write-topline">
+          <a class="dashboard-text-link" href="dashboard.html">&larr; Back to dashboard</a>
+          <span class="write-save-state" data-write-state>Unsaved draft</span>
+        </div>
+
+        <form class="write-form" data-story-form>
+          <div class="write-heading">
+            <span class="dashboard-kicker">The writing room</span>
+            <h1 data-write-heading>Start with a title.</h1>
+          </div>
+
+          <div class="write-meta-grid">
+            <div class="write-fields">
+              <div class="form-group">
+                <label for="story-title">Title</label>
+                <input id="story-title" name="title" type="text" maxlength="160" placeholder="Give your story a name" required />
+              </div>
+              <div class="form-group">
+                <label for="story-description">Description</label>
+                <textarea id="story-description" name="excerpt" rows="3" maxlength="500" placeholder="A short introduction for your readers"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="story-language">Writing language</label>
+                <select id="story-language" name="language">
+                  <option value="en">English</option>
+                  <option value="ur">Urdu</option>
+                  <option value="bal">Balochi</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="write-cover-field">
+              <label for="story-cover">Featured picture</label>
+              <label class="cover-picker" for="story-cover">
+                <img data-cover-preview alt="Story cover preview" hidden />
+                <span data-cover-prompt>Choose a picture</span>
+                <small>JPG, PNG, WebP or GIF · up to 5 MB</small>
+              </label>
+              <input class="visually-hidden" id="story-cover" type="file" accept="image/jpeg,image/png,image/webp,image/gif" data-cover-input />
+            </div>
+          </div>
+
+          <div class="editor-toolbar" role="toolbar" aria-label="Text formatting">
+            <label for="editor-font">Font</label>
+            <select id="editor-font" data-editor-font aria-label="Font style">
+              <option value="Georgia">Georgia</option>
+              <option value="Arial">Arial</option>
+              <option value="Courier New">Courier New</option>
+              <option value="Verdana">Verdana</option>
+            </select>
+            <label for="editor-size">Size</label>
+            <select id="editor-size" data-editor-size aria-label="Font size">
+              <option value="14">14 px</option>
+              <option value="16">16 px</option>
+              <option value="18" selected>18 px</option>
+              <option value="20">20 px</option>
+              <option value="24">24 px</option>
+              <option value="32">32 px</option>
+            </select>
+            <span class="editor-divider" aria-hidden="true"></span>
+            <button type="button" class="editor-format" data-format="bold" aria-label="Bold" title="Bold"><strong>B</strong></button>
+            <button type="button" class="editor-format" data-format="italic" aria-label="Italic" title="Italic"><em>I</em></button>
+            <button type="button" class="editor-format" data-format="underline" aria-label="Underline" title="Underline"><u>U</u></button>
+          </div>
+
+          <div class="story-editor" data-story-editor contenteditable="true" role="textbox" aria-label="Story text" aria-multiline="true" data-placeholder="Your story begins here..."></div>
+
+          <div class="write-footer">
+            <p class="dashboard-status" role="status" aria-live="polite" data-write-status></p>
+            <button class="btn" type="submit" data-save-story>Save draft</button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-shell">
+        <div><strong>Qalamkar</strong><div>Value your words</div></div>
+        <div class="footer-links"><a href="index.html">Home</a><a href="contact.html">Contact</a></div>
+        <div>© <span data-year></span> Qalamkar</div>
+      </div>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+    <script type="module" src="auth.js"></script>
+    <script type="module" src="write.js"></script>
+  </body>
+</html>

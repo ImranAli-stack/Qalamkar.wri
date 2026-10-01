@@ -43,6 +43,9 @@ if (!page) {
       ...drafts.slice(0, 6).map((draft) => {
         const article = document.createElement('article');
         article.className = 'dashboard-story-item';
+        article.tabIndex = 0;
+        article.setAttribute('role', 'link');
+        article.dataset.storyId = draft.id;
         article.innerHTML = `
           <div>
             <h3>${escapeHtml(draft.title)}</h3>
@@ -50,6 +53,16 @@ if (!page) {
           </div>
           <time datetime="${draft.updatedAt}">${new Date(draft.updatedAt).toLocaleDateString()}</time>
         `;
+        const open = () => {
+          window.location.assign(`write.html?id=${encodeURIComponent(draft.id)}`);
+        };
+        article.addEventListener('click', open);
+        article.addEventListener('keydown', (event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            open();
+          }
+        });
         return article;
       }),
     );
@@ -100,14 +113,13 @@ if (!page) {
         draftStatus.dataset.state = 'error';
         return;
       }
-      createDraft(user.id, {
+      const draft = createDraft(user.id, {
         title,
         language: String(formData.get('language') || 'en'),
       });
-      draftForm.reset();
-      draftStatus.textContent = 'Draft created.';
+      draftStatus.textContent = 'Opening writing room...';
       draftStatus.dataset.state = 'success';
-      renderStories(user.id);
+      window.location.assign(`write.html?id=${encodeURIComponent(draft.id)}`);
     });
   };
 
