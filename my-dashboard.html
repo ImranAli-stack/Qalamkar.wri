@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Your private Qalamkar writing dashboard." />
+    <title>My dashboard | Qalamkar</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container navbar">
+        <a href="index.html" class="brand" aria-label="Qalamkar home">
+          <span class="brand-mark">Q</span>
+          <span>Qalamkar</span>
+        </a>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="dashboard.html">Stories</a>
+          <a href="my-dashboard.html" aria-current="page">My dashboard</a>
+          <a href="competitions.html">Competitions</a>
+          <a href="monetization.html">Monetize</a>
+        </nav>
+        <div class="nav-actions" data-auth-links>
+          <a href="login.html" class="btn-ghost">Login</a>
+          <a href="signup.html" class="btn">Create account</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="dashboard-page" data-dashboard-page>
+      <div class="dashboard-shell">
+        <section class="dashboard-welcome">
+          <div>
+            <span class="eyebrow">Your writing desk</span>
+            <h1>Welcome back, <span data-dashboard-name>Writer</span></h1>
+            <p>Keep your ideas moving. Your next story can start here.</p>
+          </div>
+          <a class="btn" href="write.html">Start a story</a>
+        </section>
+
+        <section class="dashboard-stats" aria-label="Your writing activity">
+          <article class="dashboard-stat"><span>Stories</span><strong data-stat-stories>—</strong></article>
+          <article class="dashboard-stat"><span>Published</span><strong data-stat-published>—</strong></article>
+          <article class="dashboard-stat"><span>Drafts</span><strong data-stat-drafts>—</strong></article>
+          <article class="dashboard-stat"><span>Followers</span><strong data-stat-followers>—</strong></article>
+        </section>
+
+        <div class="dashboard-columns">
+          <section class="dashboard-section dashboard-work" aria-labelledby="recent-work-title">
+            <div class="dashboard-section-heading">
+              <div>
+                <span class="dashboard-kicker">Your library</span>
+                <h2 id="recent-work-title">Recent work</h2>
+              </div>
+              <a href="profile.html" class="dashboard-text-link">Edit profile</a>
+            </div>
+            <div class="dashboard-story-list" data-dashboard-stories>
+              <p class="dashboard-empty">Loading your stories...</p>
+            </div>
+            <p class="dashboard-status" role="status" aria-live="polite" data-dashboard-status></p>
+          </section>
+
+          <aside class="dashboard-section dashboard-compose" aria-labelledby="new-draft-title">
+            <span class="dashboard-kicker">A blank page</span>
+            <h2 id="new-draft-title">Make room for an idea.</h2>
+            <p>Write in your own voice, add a featured picture, and save a draft to your library.</p>
+            <a class="btn" href="write.html">Open writing room</a>
+          </aside>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-shell">
+        <div><strong>Qalamkar</strong><div>Value your words</div></div>
+        <div class="footer-links"><a href="index.html">Home</a><a href="contact.html">Contact</a></div>
+        <div>© <span data-year></span> Qalamkar</div>
+      </div>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+    <script type="module" src="auth.js"></script>
+  </body>
+</html>

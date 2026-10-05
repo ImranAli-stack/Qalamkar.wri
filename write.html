@@ -15,7 +15,8 @@
           <span>Qalamkar</span>
         </a>
         <nav class="nav-links" aria-label="Main navigation">
-          <a href="dashboard.html">Dashboard</a>
+          <a href="dashboard.html">Stories</a>
+          <a href="my-dashboard.html">My dashboard</a>
           <a href="competitions.html">Competitions</a>
           <a href="monetization.html">Monetize</a>
         </nav>
@@ -29,7 +30,7 @@
     <main class="write-page" data-write-page>
       <div class="write-shell">
         <div class="write-topline">
-          <a class="dashboard-text-link" href="dashboard.html">&larr; Back to dashboard</a>
+          <a class="dashboard-text-link" href="my-dashboard.html">&larr; Back to my dashboard</a>
           <span class="write-save-state" data-write-state>Unsaved draft</span>
         </div>
 
@@ -97,7 +98,10 @@
 
           <div class="write-footer">
             <p class="dashboard-status" role="status" aria-live="polite" data-write-status></p>
-            <button class="btn" type="submit" data-save-story>Save draft</button>
+            <div class="write-actions">
+              <button class="btn-ghost" type="submit" data-save-story data-story-action="draft">Save draft</button>
+              <button class="btn" type="submit" data-story-action="publish">Publish story</button>
+            </div>
           </div>
         </form>
       </div>
@@ -113,6 +117,5 @@
 
     <script type="module" src="script.js"></script>
     <script type="module" src="auth.js"></script>
-    <script type="module" src="write.js"></script>
   </body>
 </html>
