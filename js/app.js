@@ -1753,7 +1753,7 @@
             return;
           }
           const { data: stories, error: storiesError } = await client.from("posts")
-            .select("id, title, category, author_name, created_at")
+            .select("id, title, category, author_name, created_at, likes_table(count), comments(count)")
             .eq("user_id", userId)
             .eq("status", "published")
             .order("created_at", { ascending: false });
@@ -1766,6 +1766,11 @@
               ? stories.map((story) => `<div class="dashboard-post"><div class="dashboard-post-main"><strong>${escapeHTML(story.title || "Untitled story")}</strong><span>${escapeHTML(story.category || "Story")} · ${escapeHTML(formatDate(story.created_at))}</span></div><div class="dashboard-post-actions">${shareControlMarkup(story.id, story.title || "Untitled story")}<a class="dashboard-open" href="post.html?id=${encodeURIComponent(story.id)}">Read story</a></div></div>`).join("")
               : '<p class="community-status">No public stories yet.</p>';
           }
+          const publicStoryMetrics = storiesError ? {} : {
+            stories_count: stories.length,
+            total_likes: stories.reduce((total, story) => total + (Number(story.likes_table?.[0]?.count) || 0), 0),
+            total_comments: stories.reduce((total, story) => total + (Number(story.comments?.[0]?.count) || 0), 0)
+          };
           const name = profile.full_name || "Anonymous Writer";
           const username = profile.username || `member-${String(profile.id).slice(0, 8)}`;
           const bio = typeof profile.bio === "string" ? profile.bio.trim() : "";
@@ -1778,7 +1783,7 @@
             ["total_comments", "Total comments"]
           ];
           const metricCards = metrics.map(([field, label]) => {
-            const value = Number(profile[field]);
+            const value = Number(publicStoryMetrics[field] ?? profile[field]);
             const displayValue = Number.isSafeInteger(value) && value >= 0 ? value : 0;
             return `<div class="dashboard-stat"><strong>${displayValue}</strong><span>${label}</span></div>`;
           }).join("");
